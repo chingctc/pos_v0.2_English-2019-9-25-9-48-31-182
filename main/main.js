@@ -1,7 +1,7 @@
 'use strict';
 
 function printReceipt(inputs) {
-  let buyItemList = getPurchasedItemList(inputs);
+  let buyItemList = getPurchasedItemQuantity(inputs);
   let purchasedGoodsList = getDetailedPurchasedItemList(buyItemList);
   let purchasedGoodsWithPriceList = calculateSubTotalPrice(purchasedGoodsList);
   let receiptObject = calculateReceiptTotalPrice(purchasedGoodsWithPriceList);
@@ -9,7 +9,7 @@ function printReceipt(inputs) {
   return receipt;
 }
 
-function getPurchasedItemList(itemIds) {  // Get purchased item list -> itemID + grouped quantity
+function getPurchasedItemQuantity(itemIds) {  // Get purchased item list -> itemID + grouped quantity
     let barcodeListWithQuantity = itemIds.map(barcode => ({ barcode, quantity: 1}));
     let result = [];
     barcodeListWithQuantity.forEach(itemfirstloop => {
